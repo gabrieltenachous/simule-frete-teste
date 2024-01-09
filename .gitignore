@@ -1,19 +1,39 @@
+# Docker
+.docker
+
+# PHPUnit
 /.phpunit.cache
+.phpunit.result.cache
+
+# Node modules
 /node_modules
+
+# Public assets
 /public/build
 /public/hot
 /public/storage
+
+# Storage keys
 /storage/*.key
+
+# Composer vendor directory
 /vendor
+
+# Environment files
 .env
 .env.backup
 .env.production
-.phpunit.result.cache
+
+# Configuration files
 Homestead.json
 Homestead.yaml
 auth.json
+
+# Log files
 npm-debug.log
 yarn-error.log
+
+# IDE specific files
 /.fleet
 /.idea
 /.vscode
