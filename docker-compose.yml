@@ -33,21 +33,29 @@ services:
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
+            MYSQL_USER: ${DB_USERNAME:-laravel_user}
+            MYSQL_PASSWORD: ${DB_PASSWORD:-password}
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
+            - ./init-scripts:/docker-entrypoint-initdb.d
         ports:
             - "3388:3306"
         networks:
             - simule_frete
+
 
     # redis
     redis:
         image: redis:latest
         networks:
             - simule_frete
+        # ...
+    environment:
+        MYSQL_DATABASE: ${DB_DATABASE:-laravel}
+        MYSQL_USER: ${DB_USERNAME:-laravel_user}
+        MYSQL_PASSWORD: ${DB_PASSWORD:-password}
+        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
 
 networks:
     simule_frete:
