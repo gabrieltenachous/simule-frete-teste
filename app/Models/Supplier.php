@@ -19,6 +19,7 @@ class Supplier extends Model
         'neighborhood',
         'city',
         'state',
+        'number',
     ];
 
     // Relacionamento com os produtos

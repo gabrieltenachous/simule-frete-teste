@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
 
-Route::resource('produto',ProductController::class);
-Route::resource('fornecedor',ProductController::class);
+Route::resource('/produto',ProductController::class);
+Route::resource('/fornecedor',SupplierController::class);
